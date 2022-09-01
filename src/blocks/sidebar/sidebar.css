@@ -1,0 +1,14 @@
+.sidebar {
+  width: 100px;
+  height: calc(100vh - 100px);
+  position: fixed;
+  align-self: flex-start;
+  border-radius: 10px;
+  left: 15px;
+  top: 85px;
+  background: #252A4C;
+  /*background: linear-gradient(180deg, #2F3661 0%, rgba(47, 54, 97, 0) 100%);*/
+  transition: width ease-in-out .5s;
+  /*border: 1px solid purple;*/
+
+}

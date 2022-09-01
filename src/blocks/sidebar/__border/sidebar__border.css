@@ -1,0 +1,13 @@
+.sidebar__border {
+  /*outline: 1px solid red;*/
+  height: 100%;
+  position: absolute;
+  width: 35px;
+  top: 0;
+  right: -25px;
+  background-image: url(../../../images/sidebar/border.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: transparent;
+}

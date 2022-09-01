@@ -1,0 +1,12 @@
+.main__container {
+  width: 250px;
+  height: 100px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__container:hover {
+  opacity: 0.2;
+}

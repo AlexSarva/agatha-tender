@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/agatha-media.iml" filepath="$PROJECT_DIR$/.idea/agatha-media.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../agatha-tender/.idea/agatha-tender.iml" filepath="$PROJECT_DIR$/../agatha-tender/.idea/agatha-tender.iml" />
     </modules>
   </component>
 </project>
