@@ -1,0 +1,42 @@
+.sidebar {
+  width: 100px;
+  height: calc(100vh - 100px);
+  position: fixed;
+  align-self: flex-start;
+  border-radius: 10px;
+  left: 15px;
+  top: 85px;
+  background: transparent;
+  transition: width ease-in-out .5s;
+  outline: 1px solid yellow;
+}
+
+.sidebar_type_wide {
+  width: 200px;
+}
+
+.sidebar_type_narrow {
+  width: 85px;
+}
+
+.sidebar_type_hidden {
+  display: none;
+}
+
+.sidebar__border {
+  /*outline: 1px solid red;*/
+  height: 100%;
+  position: absolute;
+  width: 35px;
+  top: 0;
+  right: -25px;
+  background-image: url(../images/sidebar/border.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: transparent;
+}
+
+.sidebar:hover {
+  cursor: pointer;
+}

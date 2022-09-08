@@ -2,10 +2,12 @@ import Logo from './Logo';
 import sidebarOpenedIcon from '../images/sidebar/sidebar-wide.svg';
 import sidebarClosedIcon from '../images/sidebar/sidebar-narrow.svg';
 import Search from './Search';
+import '../styles/Button.css';
+import '../styles/Header.css';
 
 function Header(props) {
     return (
-        <div className="header">
+        <div className={`header ${!props.loggedIn && 'header_hidden'}`}>
             <button type="button" onClick={props.onClickSidebar} className="header__sidebar-toggle button"
                     value="sidebar" name="sidebar-toggle"
                     style={{backgroundImage: `${props.sidebarState ? `url(${sidebarOpenedIcon})` : `url(${sidebarClosedIcon})`}`}}></button>
