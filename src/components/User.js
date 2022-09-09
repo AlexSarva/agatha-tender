@@ -19,7 +19,7 @@ function User(props) {
             </div>
             <div className="user__container">
                 <p className="user__name">{props.userName}</p>
-                <button type="button" className="user__exit-btn button"
+                <button onClick={props.onLoginOut} type="button" className="user__exit-btn button"
                         value="Выйти" name="exit-btn">Выйти
                 </button>
             </div>

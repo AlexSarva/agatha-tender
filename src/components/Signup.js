@@ -25,7 +25,7 @@ function Signup(props) {
     function handleSubmit(e) {
         e.preventDefault();
         console.log(username, email, password);
-        // props.onSignup(email, password);
+        props.onSignup(username, email, password);
     }
 
     return (

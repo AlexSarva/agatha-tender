@@ -15,7 +15,7 @@ class Auth {
     }
 
     register(username, email, password) {
-        return fetch(`${this._baseUrl}/register`, {
+        return fetch(`${this._baseUrl}/api/user/register`, {
             headers: this._headers,
             method: 'POST',
             body: JSON.stringify({
@@ -28,7 +28,7 @@ class Auth {
     }
 
     authorize(email, password) {
-        return fetch(`${this._baseUrl}/login`, {
+        return fetch(`${this._baseUrl}/api/user/login`, {
             headers: this._headers,
             method: 'POST',
             body: JSON.stringify({
@@ -40,7 +40,7 @@ class Auth {
     }
 
     checkToken(token) {
-        return fetch(`${this._baseUrl}/users/me`, {
+        return fetch(`${this._baseUrl}/api/users/me`, {
             headers: {
                 ...this._headers,
                 'Authorization': `Bearer ${token}`

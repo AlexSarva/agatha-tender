@@ -20,7 +20,7 @@ function Signin(props) {
     function handleSubmit(e) {
         e.preventDefault();
         console.log(email, password);
-        // props.onSignup(email, password);
+        props.onSignin(email, password);
     }
 
     return (

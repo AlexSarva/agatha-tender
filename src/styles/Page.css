@@ -37,9 +37,10 @@
 
 .page__content {
   position: relative;
-  width: 80%;
+  width: calc(100% - 105px - 20px);
   margin: 10px 15px 0 0;
   align-self: flex-end;
+  border: 2px solid red;
   transition: width ease-in-out .5s;
 }
 

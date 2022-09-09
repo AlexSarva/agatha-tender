@@ -18,6 +18,10 @@ function App() {
     const [searchValue, setSearchValue] = useState({query: ''});
     const [userName, setUserName] = useState(' ');
 
+    useEffect(() => {
+        handleTokenCheck();
+    },[])
+
     function handleSidebar() {
         setSidebarOpened(!sidebarOpened);
     }
@@ -36,13 +40,13 @@ function App() {
 
     }
 
-    function handleSignup(email, password) {
-        auth.register(email, password)
+    function handleSignup(username, email, password) {
+        auth.register(username, email, password)
             .then((res) => {
                 if (res.token) {
                     localStorage.setItem('jwt', res.token);
                     setLoggedIn(true);
-                    history.push('/');
+                    history.push('/main');
                 }
             })
             .catch((err) => {
@@ -57,7 +61,7 @@ function App() {
                 if (res.token) {
                     localStorage.setItem('jwt', res.token);
                     setLoggedIn(true);
-                    history.push('/');
+                    history.push('/main');
                 }
             })
             .catch((err) => {
@@ -72,17 +76,19 @@ function App() {
             // проверяем токен пользователя
             auth.checkToken(jwt)
                 .then((data) => {
-                    setUserName(data.data.email);
+                    setUserName(data.username);
                     setLoggedIn(true);
-                    history.push('/');
+                    history.push('/main');
                 })
                 .catch((err) => console.log(err))
         }
     }
 
-    useEffect(() => {
-        handleTokenCheck();
-    },)
+    function handleLogout() {
+        localStorage.removeItem('jwt');
+        setLoggedIn(false);
+        history.push('/login');
+    }
 
     return (
         <div className="page">
@@ -91,23 +97,24 @@ function App() {
                     onSubmitSearch={handleUpdateOrgInfo}
                     userName={userName}
                     loggedIn={loggedIn}
+                    onLoginOut={handleLogout}
             />
-            <SideBar sidebarState={sidebarOpened} loggedIn={loggedIn}/>
-            <main className={`page__content ${sidebarOpened ? 'page__content_type_wide' : 'page__content_type_narrow'} ${!loggedIn && 'page__content_type_full'}`}>
+            <SideBar sidebarState={sidebarOpened} loggedIn={loggedIn} />
+            <main className={`page__content ${sidebarOpened && 'page__content_type_wide' } ${!loggedIn && 'page__content_type_full'}`}>
                 <Switch>
-                    <ProtectedRoute exact path="/" loggedIn={loggedIn}
-                                    sidebarState={sidebarOpened}
-                                    searchValue={searchValue}
-                                    component={Main}/>
+                    <Route exact path="/">
+                        {loggedIn ? <Redirect to="/mail"/> : <Redirect to="/login"/>}
+                    </Route>
                     <Route path="/register">
                         <Signup onSignup={handleSignup}/>
                     </Route>
                     <Route path="/login">
                         <Signin onSignin={handleSignin}/>
                     </Route>
-                    <Route exact path="/">
-                        {loggedIn ? <Redirect to="/"/> : <Redirect to="/login"/>}
-                    </Route>
+                    <ProtectedRoute exact path="/main" loggedIn={loggedIn}
+                                    sidebarState={sidebarOpened}
+                                    searchValue={searchValue}
+                                    component={Main}/>
                 </Switch>
             </main>
         </div>

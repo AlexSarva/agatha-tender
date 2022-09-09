@@ -15,7 +15,7 @@ function Header(props) {
 
             <Logo />
             <Search onSubmitSearch={props.onSubmitSearch}/>
-            <User userName={props.userName}/>
+            <User userName={props.userName} onLoginOut={props.onLoginOut}/>
         </div>
     )
 }
