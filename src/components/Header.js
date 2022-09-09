@@ -4,6 +4,7 @@ import sidebarClosedIcon from '../images/sidebar/sidebar-narrow.svg';
 import Search from './Search';
 import '../styles/Button.css';
 import '../styles/Header.css';
+import User from './User';
 
 function Header(props) {
     return (
@@ -14,6 +15,7 @@ function Header(props) {
 
             <Logo />
             <Search onSubmitSearch={props.onSubmitSearch}/>
+            <User />
         </div>
     )
 }

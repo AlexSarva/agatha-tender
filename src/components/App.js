@@ -5,11 +5,12 @@ import Main from './Main';
 import api from '../utils/api';
 import '../styles/Page.css'
 import Signup from './Signup';
+import Signin from './Signin';
 
 function App() {
 
     const [sidebarOpened, setSidebarOpened] = useState(false);
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(true);
 
     function handleSidebar() {
         setSidebarOpened(!sidebarOpened);
@@ -40,8 +41,9 @@ function App() {
             />
             <SideBar sidebarState={sidebarOpened} loggedIn={loggedIn}/>
             <main className={`page__content ${sidebarOpened ? 'page__content_type_wide' : 'page__content_type_narrow'} ${!loggedIn && 'page__content_type_full'}`}>
-                {/*<Main sidebarState={sidebarOpened} searchValue={searchValue}/>*/}
-                <Signup />
+                <Main sidebarState={sidebarOpened} searchValue={searchValue}/>
+                {/*<Signup />*/}
+                {/*<Signin />*/}
             </main>
 
         </div>
