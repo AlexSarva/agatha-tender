@@ -8,3 +8,6 @@ export const signLogos = [
     {name: "Google", icon: google},
 ]
 
+export function firstLetter(name) {
+    return Array.from(name)[0].toUpperCase();
+}

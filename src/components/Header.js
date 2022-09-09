@@ -15,7 +15,7 @@ function Header(props) {
 
             <Logo />
             <Search onSubmitSearch={props.onSubmitSearch}/>
-            <User />
+            <User userName={props.userName}/>
         </div>
     )
 }
